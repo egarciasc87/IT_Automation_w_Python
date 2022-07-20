@@ -1,3 +1,5 @@
+#Course 1, Lesson 2
+#basics of expressions and variables
 import datetime
 
 firtName = ""
