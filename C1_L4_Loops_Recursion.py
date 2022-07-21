@@ -58,10 +58,22 @@ for i in range(start, end):
     print("Item #" + str(i+1) + ":", fibonacciList[i])
 
 
-#example 5: list of matches in a football league
+#example5: list of matches in a football league
 teamsList = ["Sporting Cristal", "Alianza Lima", "Universitario", "Manucci", "UCV", "Melgar"]
 
 for local in teamsList:
     for visitor in teamsList:
         if local != visitor:
             print(local, "VS", visitor)
+
+
+##example6: recursion
+def factorial(n):
+    if n<2:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+number = input("\nEnter number to calculate factorial:")
+number = int(number)
+print("Factorial result:", factorial(number))
