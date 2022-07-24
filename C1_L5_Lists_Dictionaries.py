@@ -45,7 +45,7 @@ def stringOperations2():
     print(" ".join(newListEmail))
 
 
-#example2: list
+#example2: operations with lists
 def addIem(list, item, index):
     if index == 0:
         list.append(item)
@@ -81,5 +81,66 @@ def listOperations1():
     index = int(index)
     print("Result: {}".format(listSentences[index-1]))
 
-    print(skip_elements(['Orange', 'Pineapple',
-        'Strawberry', 'Kiwi', 'Peach']))
+    listFruits = ['Orange', 'Pineapple',
+        'Strawberry', 'Kiwi', 'Peach']
+    print("List of fruits:", listFruits)
+    print("Skip one element:", skip_elements(listFruits))
+
+def listComprehension():
+    languages = ["Python", "C#", "C++", "Java", "Basic"]
+    newList1 = []
+    newList2 = []
+
+    #Method 1 (not list comprehension)
+    for item in languages:
+        newList1.append(len(item))
+
+    #method 2: list comprehension
+    newList2 = [len(item) for item in languages]
+
+    print("Original list: {}".format(languages))
+    print("Result of method 1:", newList1)
+    print("Result of method 2:", newList2)
+
+#example3: operations woth tuples
+def tupleOperations1():
+    fullname = ("Grace", "M", "Hooper")
+    numberSeconds = input("Enter # of seconds: ")
+    result = convertSeconds(numberSeconds)
+    print("Result:", result)
+    hours, minutes, seconds = result
+    print("Detailes result: {}, {}, {}".format(hours, minutes, seconds))
+    tuplePeople()
+
+def tuplePeople():
+    people = [("Erick", "Garcia", "M", "175"), ("Carlos", "vera", "M", "170"),
+    ("Pedro", "Zamora", "M", "182")]
+
+    print("\nTuple people:", people)
+
+    for firstName, lastName, sex, height in people:
+        print("Email ->", (firstName[0] + lastName + "@email.com").lower())
+
+def tupleAnimals():
+    animals = ["lion", "zebra", "dolphin", "dog", "cat"]
+    charsLen = 0
+
+    for i in animals:
+        print("Item: ", i)
+        charsLen += len(i)
+
+    for index, item in enumerate(animals):
+        print("{} - {}".format(index, item))
+
+    print("Average of length:", charsLen/len(animals))
+    print("Average of length:", charsLen/len(animals))
+
+def convertSeconds(seconds):
+    hours = int(seconds) // 3600
+    minutes = (int(seconds) % 3600) // 60
+    seconds = int(seconds) % 60
+    return hours, minutes, seconds #<--- this is a tuples
+
+#listOperations1()
+tupleOperations1()
+listComprehension()
