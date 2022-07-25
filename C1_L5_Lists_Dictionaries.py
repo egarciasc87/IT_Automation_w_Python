@@ -141,6 +141,52 @@ def convertSeconds(seconds):
     seconds = int(seconds) % 60
     return hours, minutes, seconds #<--- this is a tuples
 
+
+#example4: operations with dictionaries
+def dictionaryOperations1():
+    list = ["Peru", "Holanda", "China"]
+    tuple = [("Peru", "America", "Español"),
+        ("Holanda", "Europa", "Holandez"),
+        ("China", "Asia", "Chino")]
+    dictionaryPeopleHeight = {}
+
+    name = "XXX"
+    height = 0
+    while name != "":
+        name = input("Enter name: ")
+
+        if name == "":
+            break
+
+        height = input("Enter height: ")
+        dictionaryPeopleHeight[name] = height
+
+    print("List of items:", dictionaryPeopleHeight)
+
+    for item in dictionaryPeopleHeight:
+        print(item)
+
+    for item, value in dictionaryPeopleHeight.items():
+        print("{}'s height is {} cm.".format(item, value))
+
+def countLetter():
+    dictionaryCount = {}
+    text = input("Enter text: ")
+
+    for letter in text:
+        print(letter)
+        if letter not in dictionaryCount:
+            dictionaryCount[letter] = 1
+        else:
+            dictionaryCount[letter] += 1
+
+    print(dictionaryCount)
+    print("Dictionary values:", dictionaryCount.values())
+    print("Dictionary values:", dictionaryCount.keys())
+    print("Dictionary items:", dictionaryCount.items())
+
 #listOperations1()
-tupleOperations1()
-listComprehension()
+#tupleOperations1()
+#listComprehension()
+#dictionaryOperations1()
+countLetter()
