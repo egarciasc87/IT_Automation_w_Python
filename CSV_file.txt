@@ -1,0 +1,4 @@
+Erick Garcia,Peru,M
+Carlos Vega,Bolivia,M
+Andres Salaverry,Colombia,M
+Andrea Echeverria,Ecuador,F

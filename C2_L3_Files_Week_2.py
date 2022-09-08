@@ -1,6 +1,8 @@
 import os
 import datetime
+import csv
 
+#managing files
 def open_file_1():
     fileName = input("Enter name of the file:")
     file = open(fileName)
@@ -30,7 +32,12 @@ def read_many_files():
 
 def write_file():
     fileName = input("Enter file name:")
-    with open(fileName, "w") as file:
+    openMode = "w"
+
+    if file_exists(fileName) == True:
+        openMode = "a"
+
+    with open(fileName, openMode) as file:
         newContent = input("Enter new content:")
         file.write(newContent)
 
@@ -77,10 +84,55 @@ def get_file_data():
         print("Last time modified: {}".format(dateModified))
         print("Absolute path: {}".format(absolutePath))
 
+
+#CSV files: comma separated value
+def read_csv():
+    fileName = input("Enter CSV file name: ")
+    file = open(fileName)
+    content = csv.reader(file)
+
+    for row in content:
+        name, country, sex = row
+        print("Name: {}, Country: {}, Sex: {}".format(name, country, sex))
+
+    file.close()
+
+def read_csv_disctionary():
+    fileName = input("Enter file name: ")
+
+    with open(fileName) as file:
+        reader = csv.DictReader(file)
+        print(reader)
+
+        for row in reader:
+            print(row)
+            print("{} is located in {}".format(row["City"],row["Country"]))
+
+def create_csv_dictionary():
+    countries = [{"Name": "Estonia", "Capital": "Tallin", "Continent": "Europe"},
+        {"Name": "Peru", "Capital": "Lima", "Continent": "America"},
+        {"Name": "Austria", "Capital": "Vienna", "Continent": "Europe"},
+        {"Name": "Japan", "Capital": "Tokyo", "Continent": "Asia"}]
+    keys = ["Name", "Capital", "Continent"]
+
+    with open("list_countries.csv", "w") as file:
+        writer = csv.DictWriter(file, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(countries)
+
+def write_csv_dictionary():
+
+    return True
+
 #open_file_1()
 #open_file_2()
 #read_many_files()
 #write_file()
 #remove_file()
 #rename_file()
-get_file_data()
+#get_file_data()
+
+#read_csv()
+#write_file()
+#read_csv_disctionary()
+create_csv_dictionary()
